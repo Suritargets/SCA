@@ -8,6 +8,12 @@ export type NewsItem = {
 
 export const newsItems: NewsItem[] = [
   {
+    title: "Infosessies",
+    date: "June 9, 2026",
+    image: "/Mini flyer infosessies (45).jpg",
+    content: "",
+  },
+  {
     title: "CISA flyer",
     date: "April 2, 2026",
     image: "/CISA-flyer-2026_20260401_222443_0000-1024x1024.png",
