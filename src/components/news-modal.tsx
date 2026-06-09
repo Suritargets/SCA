@@ -56,7 +56,7 @@ export function NewsModal({
           />
         )}
 
-        {/* Image */}
+        {/* Single image */}
         {item.image && !item.video && (
           <img
             src={item.image}
@@ -64,6 +64,21 @@ export function NewsModal({
             className={`w-full rounded-t-xl ${item.content ? "object-cover max-h-72" : "object-contain"}`}
           />
         )}
+
+        {/* Multiple images */}
+        {item.images && item.images.length > 0 && (
+          <div className="flex flex-col gap-0">
+            {item.images.map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt={`${item.title} ${i + 1}`}
+                className="w-full object-contain"
+              />
+            ))}
+          </div>
+        )}
+
 
         {/* Content */}
         <div className="p-6 space-y-3">

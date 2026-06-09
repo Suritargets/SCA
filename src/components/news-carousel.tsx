@@ -43,9 +43,9 @@ export function NewsCarousel() {
               className="group flex flex-col overflow-hidden rounded-lg border bg-white shadow-sm hover:shadow-md transition-shadow text-left"
             >
               {/* Thumbnail */}
-              {item.image ? (
+              {(item.image || item.images?.[0]) ? (
                 <img
-                  src={item.image}
+                  src={item.image ?? item.images![0]}
                   alt={item.title}
                   className="h-36 w-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />

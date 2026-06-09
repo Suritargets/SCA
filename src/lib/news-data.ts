@@ -2,11 +2,18 @@ export type NewsItem = {
   title: string;
   date: string;
   image?: string;
+  images?: string[];
   video?: string;
   content?: string;
 };
 
 export const newsItems: NewsItem[] = [
+  {
+    title: "CORPORATE FINANCE",
+    date: "June 9, 2026",
+    images: ["/Corporate Finance pagina 1.jpg", "/Corporate Finance pagina 2.jpg"],
+    content: "",
+  },
   {
     title: "Short Courses Starting July 2026",
     date: "June 9, 2026",

@@ -18,9 +18,9 @@ export function NewsGrid() {
             className="group text-left rounded-xl border bg-white shadow-sm hover:shadow-md transition-shadow overflow-hidden"
           >
             {/* Card image / video thumbnail */}
-            {n.image ? (
+            {(n.image || n.images?.[0]) ? (
               <img
-                src={n.image}
+                src={n.image ?? n.images![0]}
                 alt={n.title}
                 className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300"
               />
