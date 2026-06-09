@@ -11,13 +11,13 @@ export const newsItems: NewsItem[] = [
   {
     title: "CISA course",
     date: "June 9, 2026",
-    images: ["/CISA course pagina 1.jpg", "/CISA course pagina 2.jpg"],
+    images: ["/CISA-course-pagina-1.jpg", "/CISA-course-pagina-2.jpg"],
     content: "",
   },
   {
     title: "CORPORATE FINANCE",
     date: "June 9, 2026",
-    images: ["/Corporate Finance pagina 1.jpg", "/Corporate Finance pagina 2.jpg"],
+    images: ["/Corporate-Finance-pagina-1.jpg", "/Corporate-Finance-pagina-2.jpg"],
     content: "",
   },
   {
@@ -29,7 +29,7 @@ export const newsItems: NewsItem[] = [
   {
     title: "Infosessies",
     date: "June 9, 2026",
-    image: "/Mini flyer infosessies (45).jpg",
+    image: "/Mini-flyer-infosessies.jpg",
     content: "",
   },
   {
@@ -47,7 +47,7 @@ export const newsItems: NewsItem[] = [
   {
     title: "QT Graduates",
     date: "January 15, 2026",
-    image: "/QT graduates.jpg",
+    image: "/QT-graduates.jpg",
     content: "",
   },
   {
