@@ -23,7 +23,7 @@ export const newsItems: NewsItem[] = [
   {
     title: "Short Courses Starting July 2026",
     date: "June 9, 2026",
-    image: "/Subjects July 2026 (1).jpg",
+    image: "/Subjects-July-2026.jpg",
     content: "",
   },
   {
