@@ -20,12 +20,6 @@ export const newsItems: NewsItem[] = [
     content: "",
   },
   {
-    title: "CISA graduate Shaam Bhagoe",
-    date: "February 12, 2026",
-    image: "/Shaam-Bhagoe-felicitatie-CISA-819x1024.jpg",
-    content: "",
-  },
-  {
     title: "Certified Information Systems Auditor course",
     date: "January 15, 2026",
     image: "/CISA-flyer-2026_Page_2-724x1024.png",
@@ -47,12 +41,6 @@ export const newsItems: NewsItem[] = [
     title: "Lokalen te Huur",
     date: "September 24, 2025",
     image: "/Lokalen-724x1024.jpg",
-    content: "",
-  },
-  {
-    title: "Promo Video",
-    date: "August 14, 2025",
-    video: "/Video.Guru_20250916_122924088.mp4",
     content: "",
   },
   {

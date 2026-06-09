@@ -19,7 +19,7 @@ export function Footer() {
               <li>Paramaribo, Suriname</li>
               <li>South-America</li>
               <li className="pt-2">(t) 597- 425 766</li>
-              <li>(m) 597 – 7156302</li>
+              <li>(m) +597 8402297</li>
               <li className="pt-2">
                 (e){" "}
                 <a

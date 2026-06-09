@@ -9,7 +9,7 @@ const contactInfo = [
     label: "Address",
     value: "Henck Arronstraat 134\nParamaribo, Suriname\nSouth-America",
   },
-  { icon: Phone, label: "Phone", value: "(t) 597-425 766\n(m) 597-7156302" },
+  { icon: Phone, label: "Phone", value: "(t) 597-425 766\n(m) +597 8402297" },
   { icon: Mail, label: "Email", value: "info@surinamecollegeofaccountancy.com" },
   {
     icon: Clock,

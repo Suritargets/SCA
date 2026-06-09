@@ -297,7 +297,7 @@ export default function CATPage() {
                   <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">{label}</p>
                   {value && <p className="mt-0.5 text-sm font-medium text-foreground">{value}</p>}
                   {label === "FPER" && (
-                    <a href="#" className="mt-1 text-xs text-sca-orange hover:underline">Read more</a>
+                    <a href="https://www.accaglobal.com/gb/en/student/practical-experience-per/practical-experience-foundation-level.html" target="_blank" rel="noopener noreferrer" className="mt-1 text-xs text-sca-orange hover:underline">Read more</a>
                   )}
                 </div>
               </div>
