@@ -9,6 +9,12 @@ export type NewsItem = {
 
 export const newsItems: NewsItem[] = [
   {
+    title: "CISA course",
+    date: "June 9, 2026",
+    images: ["/CISA course pagina 1.jpg", "/CISA course pagina 2.jpg"],
+    content: "",
+  },
+  {
     title: "CORPORATE FINANCE",
     date: "June 9, 2026",
     images: ["/Corporate Finance pagina 1.jpg", "/Corporate Finance pagina 2.jpg"],
