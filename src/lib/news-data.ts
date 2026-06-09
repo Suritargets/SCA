@@ -26,12 +26,6 @@ export const newsItems: NewsItem[] = [
     content: "",
   },
   {
-    title: "Short Courses Starting July 2026",
-    date: "February 12, 2026",
-    image: "/Subjects-July-2026-1086x1536.jpg",
-    content: "",
-  },
-  {
     title: "Certified Information Systems Auditor course",
     date: "January 15, 2026",
     image: "/CISA-flyer-2026_Page_2-724x1024.png",
