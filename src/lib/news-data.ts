@@ -28,7 +28,7 @@ export const newsItems: NewsItem[] = [
   {
     title: "QT Graduates",
     date: "January 15, 2026",
-    image: "/Afgestudeerden.jpg",
+    image: "/QT graduates.jpg",
     content: "",
   },
   {
