@@ -17,7 +17,7 @@ export const newsItems: NewsItem[] = [
   {
     title: "CORPORATE FINANCE",
     date: "June 9, 2026",
-    images: ["/Corporate-Finance-pagina-1.jpg", "/Corporate-Finance-pagina-2.jpg"],
+    images: ["/Corporate-Finance-pagina-1a.jpg", "/Corporate-Finance-pagina-2a.jpg"],
     content: "",
   },
   {
