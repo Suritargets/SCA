@@ -64,14 +64,11 @@ const accordionItems: { title: string; content: ReactNode }[] = [
     content: (
       <div className="space-y-3">
         <ul className="ml-5 list-disc space-y-1">
-          <li>Diploma HEAO BE, SPD or</li>
+          <li>Bachelor&apos;s Degree in Business Economics or SPD</li>
           <li>Qualified Controller HOFAM</li>
           <li>Two (2) years in a treasury function</li>
         </ul>
-        <p>
-          Duration and times day program from 18:00 to 21:00, the study is on average 6
-          hours per week.
-        </p>
+        <p>College times will vary per module.</p>
       </div>
     ),
   },
