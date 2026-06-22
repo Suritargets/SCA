@@ -76,7 +76,7 @@ const accordionItems: { title: string; content: ReactNode }[] = [
     title: "Examination",
     content: (
       <p>
-        Both semesters are completed with a written exam. The course ends with a final
+        Each module is completed with a written exam. The course ends with a final
         examination that consists of writing a thesis and oral defense thereof.
       </p>
     ),
