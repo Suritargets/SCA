@@ -201,8 +201,7 @@ const accordionItems: { title: string; content: ReactNode }[] = [
           The tuition fee is EUR 7.500 including books, thesis supervision and exam fee.
         </p>
         <p>
-          In cooperation with the Nationale Ontwikkelingsbank, Finabank, Hakrinbank and
-          De Surinaamsche Bank, Suriname College of Accountancy was able to create a
+          In cooperation with the Nationale Ontwikkelingsbank, Suriname College of Accountancy was able to create a
           way for her students to receive study financing for their courses if necessary.
         </p>
         <p>
@@ -210,7 +209,7 @@ const accordionItems: { title: string; content: ReactNode }[] = [
           program coordinator can also be arranged.
         </p>
         <p>
-          For an appointment we can be contacted on the following numbers: 425 766 / 71 56 302
+          For an appointment we can be contacted on the following numbers: 425 766 / 840 2297
           or you can send an email{" "}
           <a
             href="mailto:info@surinamecollegeofaccountancy.com"
