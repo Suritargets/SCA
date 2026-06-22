@@ -9,21 +9,26 @@ const accordionItems: { title: string; content: ReactNode }[] = [
     title: "Course for Qualified Treasurer (QT)",
     content: (
       <div className="space-y-4">
-        <p>
-          One year (1) hands-on training (course) to a senior treasurer at post bachelor
-          level. You work at a financial service provider or a company and are responsible
-          for optimizing flows. Want to get a better return? With the training &lsquo;Qualified
-          Treasurer&rsquo; it will broaden your understanding in this field so you can go on a
-          strategic and tactical level operations.
+        <p className="font-semibold text-foreground uppercase tracking-wide">
+          CREATING VALUE, UNLOCKING VALUE, AND PROTECTING VALUE
         </p>
-        <p className="font-semibold text-foreground">Your result after training</p>
+        <p>
+          The Qualified Treasurer (QT) is a practical, post-bachelor professional executive program designed for financial professionals working within corporations, banks, insurance companies, financial institutions, and government entities.
+        </p>
+        <p>
+          The program focuses on financial decision-making regarding investments, corporate finance, liquidity management, treasury, and risk management. The central theme throughout the curriculum is how organizations can create value, unlock value, and protect value.
+        </p>
+        <p>
+          The program bridges the gap between theory and practice by utilizing real-world case studies from corporations, banks, and insurers, with a distinct emphasis on Surinamese treasury and business practices.
+        </p>
+        <p>
+          Participants will not only learn how to deploy financial instruments, but more importantly, how to strategically advise senior management on:
+        </p>
         <ul className="ml-5 list-disc space-y-1">
-          <li>Use a Treasury Regulations for your organization produce and analyze.</li>
-          <li>You make sound investment choices and enables financial schedules.</li>
-          <li>You can keep verifiable financial information.</li>
-          <li>You can work with interest and currency risks.</li>
-          <li>You are able to make an analysis on the acquisition and divestiture of businesses.</li>
-          <li>You are acting on economic trends and recent developments.</li>
+          <li>Value creation</li>
+          <li>Cash &amp; liquidity management</li>
+          <li>Funding &amp; capital structures</li>
+          <li>Risk management and mitigation</li>
         </ul>
       </div>
     ),
