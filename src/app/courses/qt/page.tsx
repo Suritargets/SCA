@@ -82,6 +82,99 @@ const accordionItems: { title: string; content: ReactNode }[] = [
     ),
   },
   {
+    title: "Curriculum",
+    content: (
+      <div className="space-y-6 text-sm">
+
+        <div className="space-y-2">
+          <p className="font-bold text-foreground">Module 1: Corporate Finance &amp; Value Creation</p>
+          <p className="italic text-muted-foreground">Core Question: How do corporations, banks, and insurers create sustainable value?</p>
+          <p className="font-semibold text-foreground">Value-Based Management</p>
+          <ul className="ml-5 list-disc space-y-1">
+            <li>Financial Mathematics (or Financial Arithmetic)</li>
+            <li>Investment Analysis (Capital Budgeting)</li>
+            <li>Cost of Capital &amp; Risk</li>
+            <li>Capital Structure</li>
+            <li>Business Valuation (Corporate Valuation)</li>
+            <li>Credit Analysis</li>
+            <li>Value Creation &amp; Optimization</li>
+            <li>Mergers &amp; Acquisitions (M&amp;A)</li>
+          </ul>
+        </div>
+
+        <div className="space-y-2">
+          <p className="font-bold text-foreground">Module 2: Cash, Liquidity, Treasury &amp; Working Capital Management</p>
+          <p className="italic text-muted-foreground">Core Question: How do organizations unlock value through the optimal management of cash flows and working capital?</p>
+          <ul className="ml-5 list-disc space-y-1">
+            <li>Treasury Fundamentals</li>
+            <li>Treasury Policy (Treasury Statute)</li>
+            <li>Cash Management</li>
+            <li>Liquidity Management</li>
+            <li>Working Capital Management</li>
+            <li>Accounts Receivable Management (Credit Management)</li>
+            <li>Accounts Payable Management</li>
+            <li>Inventory Management</li>
+            <li>Treasury Technology</li>
+            <li>Recent Industry Developments (AI/Software)</li>
+            <li>Practical Assignment</li>
+          </ul>
+        </div>
+
+        <div className="space-y-2">
+          <p className="font-bold text-foreground">Module 3: Financial &amp; Enterprise Risk Management</p>
+          <p className="italic text-muted-foreground">Core Question: How do organizations protect their value against financial and operational risks?</p>
+          <ul className="ml-5 list-disc space-y-1">
+            <li>Enterprise Risk Management (ERM)</li>
+            <li>Financial Risks</li>
+            <li>Interest Rate Risk Management</li>
+            <li>FX Risk Management (Foreign Exchange Risk Management)</li>
+            <li>Treasury Instruments</li>
+            <li>Credit Risk Management</li>
+            <li>Country Risk</li>
+            <li>Operational Risk</li>
+            <li>Banking &amp; Insurance</li>
+            <li>Risk Reporting</li>
+          </ul>
+        </div>
+
+        <div className="space-y-2">
+          <p className="font-bold text-foreground">Module 4: Integrated Practical Case Study</p>
+          <p>Participants will work individually or in groups on a real-world business case, comprehensively applying the knowledge gained from the first three modules.</p>
+          <p className="font-semibold text-foreground">The case study may focus on:</p>
+          <ul className="ml-5 list-disc space-y-1">
+            <li>A corporation</li>
+            <li>A bank</li>
+            <li>An insurance company</li>
+            <li>A government organization</li>
+          </ul>
+          <p className="font-semibold text-foreground">Participants will formulate concrete recommendations regarding:</p>
+          <ul className="ml-5 list-disc space-y-1">
+            <li>Value creation</li>
+            <li>Corporate financing / funding</li>
+            <li>Treasury</li>
+            <li>Liquidity management</li>
+            <li>Risk management</li>
+          </ul>
+        </div>
+
+        <div className="space-y-2">
+          <p className="font-bold text-foreground">Module 5: Thesis &amp; Oral Examination</p>
+          <p>The program concludes with a practice-oriented thesis based on a financial or treasury issue within the participant's own organization.</p>
+          <p className="font-semibold text-foreground">The thesis includes:</p>
+          <ul className="ml-5 list-disc space-y-1">
+            <li>Problem analysis</li>
+            <li>Theoretical framework</li>
+            <li>Empirical / practical research</li>
+            <li>Proposed solutions</li>
+            <li>Advisory &amp; implementation proposal</li>
+          </ul>
+          <p>Following the evaluation of the thesis, an oral examination will take place, during which the participant will defend their conclusions and recommendations before an examination board.</p>
+        </div>
+
+      </div>
+    ),
+  },
+  {
     title: "Diploma",
     content: (
       <p>
