@@ -283,7 +283,7 @@ export default function QTPage() {
             ))}
             <div className="px-4 py-5 space-y-3">
               <a
-                href="/QT-brochure-website-2023.pdf"
+                href="/QT-brochure-2026.pdf"
                 download
                 className="flex items-center gap-2 w-full rounded bg-sca-orange px-4 py-2.5 text-sm font-semibold text-white hover:bg-sca-orange-dark transition-colors"
               >
