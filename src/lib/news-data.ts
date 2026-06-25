@@ -9,6 +9,12 @@ export type NewsItem = {
 
 export const newsItems: NewsItem[] = [
   {
+    title: "ACCA graduates",
+    date: "June 25, 2026",
+    image: "/ACCA-graduates-Mungroo-Smith.png",
+    content: "",
+  },
+  {
     title: "CISA course",
     date: "June 9, 2026",
     images: ["/CISA-course-pagina-1.jpg", "/CISA-course-pagina-2.jpg"],
