@@ -51,12 +51,6 @@ export const newsItems: NewsItem[] = [
     content: "",
   },
   {
-    title: "Start je toekomst met accountancy",
-    date: "December 13, 2025",
-    image: "/Promo-flyer-25-okt-724x1024.jpg",
-    content: "",
-  },
-  {
     title: "Lokalen te Huur",
     date: "September 24, 2025",
     image: "/Lokalen-724x1024.jpg",
