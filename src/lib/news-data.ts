@@ -21,18 +21,6 @@ export const newsItems: NewsItem[] = [
     content: "",
   },
   {
-    title: "CORPORATE FINANCE",
-    date: "June 9, 2026",
-    images: ["/Corporate-Finance-pagina-1a.jpg", "/Corporate-Finance-pagina-2a.jpg"],
-    content: "",
-  },
-  {
-    title: "Short Courses Starting July 2026",
-    date: "June 9, 2026",
-    image: "/Subjects-July-2026.jpg",
-    content: "",
-  },
-  {
     title: "Infosessies",
     date: "June 9, 2026",
     image: "/Mini-flyer-infosessies.jpg",
