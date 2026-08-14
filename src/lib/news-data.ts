@@ -9,6 +9,12 @@ export type NewsItem = {
 
 export const newsItems: NewsItem[] = [
   {
+    title: "Masterclass Jaarrekeninganalyse voor Professionals",
+    date: "June 25, 2026",
+    images: ["/Masterclass-Jaarrekeninganalyse-pagina-1.jpg", "/Masterclass-Jaarrekeninganalyse-pagina-2.jpg"],
+    content: "",
+  },
+  {
     title: "ACCA graduates",
     date: "June 25, 2026",
     image: "/ACCA-graduates-Mungroo-Smith.png",
