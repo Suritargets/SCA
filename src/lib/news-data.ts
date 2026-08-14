@@ -35,7 +35,7 @@ export const newsItems: NewsItem[] = [
   {
     title: "CISA flyer",
     date: "April 2, 2026",
-    image: "/CISA-flyer-2026_20260401_222443_0000-1024x1024.png",
+    image: "/CISA-flyer-oktober-2026.jpg",
     content: "",
   },
   {
