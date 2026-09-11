@@ -23,7 +23,7 @@ export const newsItems: NewsItem[] = [
   {
     title: "Infosessies",
     date: "June 9, 2026",
-    image: "/Mini-flyer-infosessies.jpg",
+    image: "/Infosessies-2026.jpg",
     content: "",
   },
   {
