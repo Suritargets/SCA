@@ -9,12 +9,6 @@ export type NewsItem = {
 
 export const newsItems: NewsItem[] = [
   {
-    title: "Masterclass Jaarrekeninganalyse voor Professionals",
-    date: "June 25, 2026",
-    images: ["/Masterclass-Jaarrekeninganalyse-pagina-1.jpg", "/Masterclass-Jaarrekeninganalyse-pagina-2.jpg"],
-    content: "",
-  },
-  {
     title: "ACCA graduates",
     date: "June 25, 2026",
     image: "/ACCA-graduates-Mungroo-Smith.png",
@@ -39,12 +33,6 @@ export const newsItems: NewsItem[] = [
     content: "",
   },
   {
-    title: "Certified Information Systems Auditor course",
-    date: "January 15, 2026",
-    image: "/CISA-flyer-2026_Page_2-724x1024.png",
-    content: "",
-  },
-  {
     title: "QT Graduates",
     date: "January 15, 2026",
     image: "/QT-graduates.jpg",
@@ -54,12 +42,6 @@ export const newsItems: NewsItem[] = [
     title: "Lokalen te Huur",
     date: "September 24, 2025",
     image: "/Lokalen-724x1024.jpg",
-    content: "",
-  },
-  {
-    title: "Certificering van ISACA",
-    date: "March 25, 2025",
-    image: "/CISA-flyer-2024-gedetailleerd_20250324_142221_0000.jpg",
     content: "",
   },
   {
