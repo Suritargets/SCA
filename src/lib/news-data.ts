@@ -29,7 +29,7 @@ export const newsItems: NewsItem[] = [
   {
     title: "CISA flyer",
     date: "April 2, 2026",
-    image: "/CISA-flyer-oktober-2026.jpg",
+    image: "/CISA-mini-flyer-square.jpg",
     content: "",
   },
   {
