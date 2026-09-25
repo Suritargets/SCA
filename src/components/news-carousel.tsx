@@ -2,31 +2,34 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
-import { newsItems, type NewsItem } from "@/lib/news-data";
+import { newsItems as staticNewsItems, type NewsItem } from "@/lib/news-data";
 import { NewsModal } from "@/components/news-modal";
 
 const VISIBLE = 4;
 const INTERVAL = 4000;
 
-export function NewsCarousel() {
+export function NewsCarousel({ items = staticNewsItems }: { items?: NewsItem[] }) {
   const [start, setStart] = useState(0);
   const [selected, setSelected] = useState<NewsItem | null>(null);
-  const total = newsItems.length;
+  const total = items.length;
 
   const next = useCallback(() => {
-    setStart((s) => (s + 1) % total);
+    if (total > 0) setStart((s) => (s + 1) % total);
   }, [total]);
 
   const prev = () => {
-    setStart((s) => (s - 1 + total) % total);
+    if (total > 0) setStart((s) => (s - 1 + total) % total);
   };
 
   useEffect(() => {
+    if (total === 0) return;
     const id = setInterval(next, INTERVAL);
     return () => clearInterval(id);
-  }, [next]);
+  }, [next, total]);
 
-  const visible = Array.from({ length: VISIBLE }, (_, i) => newsItems[(start + i) % total]);
+  if (total === 0) return null;
+
+  const visible = Array.from({ length: Math.min(VISIBLE, total) }, (_, i) => items[(start + i) % total]);
 
   const pages = Math.ceil(total / VISIBLE);
   const activePage = Math.floor(start / VISIBLE) % pages;

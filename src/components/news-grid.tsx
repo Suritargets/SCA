@@ -1,17 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { newsItems, type NewsItem } from "@/lib/news-data";
+import { newsItems as staticNewsItems, type NewsItem } from "@/lib/news-data";
 import { NewsModal } from "@/components/news-modal";
 import { Calendar, Play } from "lucide-react";
 
-export function NewsGrid() {
+export function NewsGrid({ items = staticNewsItems }: { items?: NewsItem[] }) {
   const [selected, setSelected] = useState<NewsItem | null>(null);
 
   return (
     <>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {newsItems.map((n) => (
+        {items.map((n) => (
           <button
             key={n.title}
             onClick={() => setSelected(n)}

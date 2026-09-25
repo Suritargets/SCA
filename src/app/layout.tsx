@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -16,18 +15,18 @@ export const metadata: Metadata = {
     "Forms your Future in Accounting & Finance. Official tuition provider for ACCA, NIVE and ISACA.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
+const clerkReady =
+  !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY &&
+  !process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY.includes("placeholder");
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const body = (
     <html lang="en">
       <body className={`${poppins.variable} font-sans antialiased`}>
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );
+
+  return clerkReady ? <ClerkProvider>{body}</ClerkProvider> : body;
 }

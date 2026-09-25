@@ -11,6 +11,7 @@ node_modules/
 
 # env files
 .env*
+!.env.example
 
 # claude
 .claude/
@@ -18,3 +19,12 @@ node_modules/
 # misc
 .DS_Store
 *.pem
+*.tsbuildinfo
+
+# locally uploaded media (use Vercel Blob or S3 in production)
+/public/uploads/
+
+# embedded local Postgres (PGlite) used for dev/preview without a real DB
+/.pglite-data/
+
+.vercel

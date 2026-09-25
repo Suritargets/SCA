@@ -2,6 +2,9 @@ import Link from "next/link";
 import { BookOpen, BarChart3, Monitor, GraduationCap, Award, Globe } from "lucide-react";
 import { NewsCarousel } from "@/components/news-carousel";
 import { HeroGallery } from "@/components/hero-gallery";
+import { getPublishedNewsItems } from "@/lib/posts";
+
+export const dynamic = "force-dynamic";
 
 const courseCards = [
   {
@@ -49,7 +52,9 @@ const careerCards = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const newsForCarousel = await getPublishedNewsItems();
+
   return (
     <>
       {/* ── HERO ── */}
@@ -114,7 +119,7 @@ export default function Home() {
             News updates
           </h2>
           <div className="px-6">
-            <NewsCarousel />
+            <NewsCarousel items={newsForCarousel} />
           </div>
         </div>
       </section>
