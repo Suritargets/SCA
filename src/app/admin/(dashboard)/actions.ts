@@ -267,13 +267,15 @@ export async function deletePost(formData: FormData) {
 
 // ─── Media ─────────————————————————————————————————————————————————————————
 // Vercel's serverless filesystem is read-only outside /tmp, so uploads must
-// go to Vercel Blob storage in production. Locally (no BLOB_READ_WRITE_TOKEN)
-// we fall back to writing into public/uploads for simplicity.
+// go to Vercel Blob storage in production. The SDK authenticates either via
+// BLOB_READ_WRITE_TOKEN or (when the store is connected through the
+// dashboard) BLOB_STORE_ID + Vercel's auto-injected OIDC token. Locally,
+// with neither present, we fall back to writing into public/uploads.
 async function saveUploadedFile(file: File) {
   const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "-");
   const filename = `${Date.now()}-${safeName}`;
 
-  if (process.env.BLOB_READ_WRITE_TOKEN) {
+  if (process.env.BLOB_READ_WRITE_TOKEN || process.env.BLOB_STORE_ID) {
     const { put } = await import("@vercel/blob");
     const blob = await put(filename, file, { access: "public" });
     return blob.url;
@@ -317,7 +319,7 @@ async function deleteUploadedFile(url: string) {
     await fs.unlink(path.join(process.cwd(), "public", url)).catch(() => {});
     return;
   }
-  if (process.env.BLOB_READ_WRITE_TOKEN && url.includes(".public.blob.vercel-storage.com")) {
+  if ((process.env.BLOB_READ_WRITE_TOKEN || process.env.BLOB_STORE_ID) && url.includes(".public.blob.vercel-storage.com")) {
     const { del } = await import("@vercel/blob");
     await del(url).catch(() => {});
   }
