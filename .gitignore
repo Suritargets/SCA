@@ -28,3 +28,5 @@ node_modules/
 /.pglite-data/
 
 .vercel
+
+.env*.local

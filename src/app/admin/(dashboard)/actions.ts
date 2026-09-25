@@ -225,6 +225,7 @@ export async function savePost(formData: FormData) {
   const uploadedUrls = await Promise.all(newFiles.map((f) => saveUploadedFile(f)));
   const images = [...keptImages, ...uploadedUrls];
   const featuredImage = images[0] ?? null;
+  await Promise.all([...removedImages].map((url) => deleteUploadedFile(url)));
 
   const [existing] = id
     ? await db.select({ id: posts.id, status: posts.status, publishedAt: posts.publishedAt }).from(posts).where(eq(posts.id, id)).limit(1)
@@ -257,16 +258,28 @@ export async function savePost(formData: FormData) {
 export async function deletePost(formData: FormData) {
   await requireAdmin();
   const id = formData.get("id") as string;
+  const [row] = await db.select({ images: posts.images }).from(posts).where(eq(posts.id, id)).limit(1);
   await db.delete(posts).where(eq(posts.id, id));
+  if (row?.images?.length) await Promise.all(row.images.map((url) => deleteUploadedFile(url)));
   revalidatePath("/admin/blog");
   revalidatePath("/news");
 }
 
 // ─── Media ─────────————————————————————————————————————————————————————————
+// Vercel's serverless filesystem is read-only outside /tmp, so uploads must
+// go to Vercel Blob storage in production. Locally (no BLOB_READ_WRITE_TOKEN)
+// we fall back to writing into public/uploads for simplicity.
 async function saveUploadedFile(file: File) {
-  const bytes = Buffer.from(await file.arrayBuffer());
   const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "-");
   const filename = `${Date.now()}-${safeName}`;
+
+  if (process.env.BLOB_READ_WRITE_TOKEN) {
+    const { put } = await import("@vercel/blob");
+    const blob = await put(filename, file, { access: "public" });
+    return blob.url;
+  }
+
+  const bytes = Buffer.from(await file.arrayBuffer());
   const uploadDir = path.join(process.cwd(), "public", "uploads");
   await fs.mkdir(uploadDir, { recursive: true });
   await fs.writeFile(path.join(uploadDir, filename), bytes);
@@ -294,13 +307,20 @@ export async function deleteMedia(formData: FormData) {
   await requireAdmin();
   const id = formData.get("id") as string;
   const [row] = await db.select().from(media).where(eq(media.id, id)).limit(1);
-  if (row?.url?.startsWith("/uploads/")) {
-    await fs
-      .unlink(path.join(process.cwd(), "public", row.url))
-      .catch(() => {}); // ignore if already gone
-  }
+  if (row?.url) await deleteUploadedFile(row.url);
   await db.delete(media).where(eq(media.id, id));
   revalidatePath("/admin/media");
+}
+
+async function deleteUploadedFile(url: string) {
+  if (url.startsWith("/uploads/")) {
+    await fs.unlink(path.join(process.cwd(), "public", url)).catch(() => {});
+    return;
+  }
+  if (process.env.BLOB_READ_WRITE_TOKEN && url.includes(".public.blob.vercel-storage.com")) {
+    const { del } = await import("@vercel/blob");
+    await del(url).catch(() => {});
+  }
 }
 
 // ─── Contact submissions ─────————————————————————————————————————————————————
