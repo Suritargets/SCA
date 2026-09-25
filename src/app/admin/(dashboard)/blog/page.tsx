@@ -1,10 +1,11 @@
 import { desc } from "drizzle-orm";
-import { Plus, Pencil, Trash2, Image as ImageIcon } from "lucide-react";
+import { Plus, Pencil, Trash2, Image as ImageIcon, FileText } from "lucide-react";
 import { db, posts } from "@/db";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { formatDateShortNL } from "@/lib/format";
+import { isPdfUrl } from "@/lib/media";
 import { savePost, deletePost } from "../actions";
 import type { Post } from "@/db";
 
@@ -16,6 +17,18 @@ function bodyText(content: unknown): string {
     return String((content as { text: unknown }).text ?? "");
   }
   return "";
+}
+
+function Thumb({ url, className }: { url: string; className: string }) {
+  if (isPdfUrl(url)) {
+    return (
+      <div className={`flex items-center justify-center bg-sca-navy/5 ${className}`}>
+        <FileText className="h-4 w-4 text-sca-navy/40" />
+      </div>
+    );
+  }
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src={url} alt="" className={`object-cover ${className}`} />;
 }
 
 function StatusPill({ status }: { status: string }) {
@@ -67,13 +80,12 @@ function PostForm({ post }: { post?: Post }) {
       </div>
 
       <div className="space-y-2">
-        <Label>Afbeeldingen</Label>
+        <Label>Afbeeldingen / PDF&apos;s</Label>
         {post?.images && post.images.length > 0 && (
           <div className="flex flex-wrap gap-3 pb-1">
             {post.images.map((url) => (
               <div key={url} className="relative">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={url} alt="" className="h-16 w-16 rounded-md border object-cover" />
+                <Thumb url={url} className="h-16 w-16 rounded-md border" />
                 <input type="hidden" name="existingImages" value={url} />
                 <label className="mt-1 flex items-center gap-1 text-[10px] text-muted-foreground">
                   <input type="checkbox" name="removeImage" value={url} className="h-3 w-3 accent-destructive" />
@@ -83,9 +95,9 @@ function PostForm({ post }: { post?: Post }) {
             ))}
           </div>
         )}
-        <Input type="file" name="images" accept="image/*" multiple />
+        <Input type="file" name="images" accept="image/*,application/pdf" multiple />
         <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
-          <ImageIcon className="h-3.5 w-3.5" /> Je kunt meerdere afbeeldingen tegelijk selecteren; nieuwe worden toegevoegd aan bestaande.
+          <ImageIcon className="h-3.5 w-3.5" /> Je kunt meerdere afbeeldingen of PDF&apos;s (bijv. flyers) tegelijk selecteren; nieuwe worden toegevoegd aan bestaande.
         </p>
       </div>
 
@@ -151,12 +163,7 @@ export default async function BlogPage() {
               <summary className="flex cursor-pointer items-center justify-between gap-3 px-5 py-4">
                 <div className="flex min-w-0 items-center gap-3">
                   {p.featuredImage ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={p.featuredImage}
-                      alt=""
-                      className="h-10 w-10 shrink-0 rounded-md object-cover"
-                    />
+                    <Thumb url={p.featuredImage} className="h-10 w-10 shrink-0 rounded-md" />
                   ) : (
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-muted">
                       <ImageIcon className="h-4 w-4 text-muted-foreground" />

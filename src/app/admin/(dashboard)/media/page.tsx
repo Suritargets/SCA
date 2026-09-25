@@ -1,8 +1,9 @@
 import { desc } from "drizzle-orm";
-import { Trash2, UploadCloud } from "lucide-react";
+import { Trash2, UploadCloud, FileText } from "lucide-react";
 import { db, media } from "@/db";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { isPdfUrl } from "@/lib/media";
 import { uploadMedia, deleteMedia } from "../actions";
 
 export const dynamic = "force-dynamic";
@@ -31,7 +32,7 @@ export default async function MediaPage() {
       >
         <div className="space-y-2">
           <Label>Bestand</Label>
-          <Input type="file" name="file" accept="image/*" required className="w-64" />
+          <Input type="file" name="file" accept="image/*,application/pdf" required className="w-64" />
         </div>
         <div className="flex-1 space-y-2">
           <Label>Alt-tekst (optioneel)</Label>
@@ -50,8 +51,14 @@ export default async function MediaPage() {
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {rows.map((m) => (
             <div key={m.id} className="overflow-hidden rounded-xl border bg-white">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={m.url} alt={m.altText ?? m.filename} className="aspect-video w-full object-cover" />
+              {isPdfUrl(m.url) ? (
+                <div className="flex aspect-video w-full items-center justify-center bg-sca-navy/5">
+                  <FileText className="h-8 w-8 text-sca-navy/40" />
+                </div>
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={m.url} alt={m.altText ?? m.filename} className="aspect-video w-full object-cover" />
+              )}
               <div className="flex items-start justify-between gap-2 p-3">
                 <div className="min-w-0">
                   <p className="truncate text-xs font-medium text-sca-navy" title={m.filename}>

@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { newsItems as staticNewsItems, type NewsItem } from "@/lib/news-data";
 import { NewsModal } from "@/components/news-modal";
-import { Calendar, Play } from "lucide-react";
+import { Calendar, Play, FileText } from "lucide-react";
+import { isPdfUrl } from "@/lib/media";
 
 export function NewsGrid({ items = staticNewsItems }: { items?: NewsItem[] }) {
   const [selected, setSelected] = useState<NewsItem | null>(null);
@@ -19,11 +20,17 @@ export function NewsGrid({ items = staticNewsItems }: { items?: NewsItem[] }) {
           >
             {/* Card image / video thumbnail */}
             {(n.image || n.images?.[0]) ? (
-              <img
-                src={n.image ?? n.images![0]}
-                alt={n.title}
-                className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300"
-              />
+              isPdfUrl(n.image ?? n.images![0]) ? (
+                <div className="flex h-44 w-full items-center justify-center bg-sca-navy/5">
+                  <FileText className="h-10 w-10 text-sca-navy/40" />
+                </div>
+              ) : (
+                <img
+                  src={n.image ?? n.images![0]}
+                  alt={n.title}
+                  className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              )
             ) : n.video ? (
               <div className="w-full h-44 bg-gray-900 flex items-center justify-center relative overflow-hidden">
                 <video src={n.video} className="absolute inset-0 w-full h-full object-cover opacity-50" />

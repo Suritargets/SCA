@@ -1,8 +1,30 @@
 "use client";
 
 import { useEffect } from "react";
-import { X } from "lucide-react";
+import { X, FileText, Download } from "lucide-react";
 import type { NewsItem } from "@/lib/news-data";
+import { isPdfUrl } from "@/lib/media";
+
+function MediaBlock({ src, alt }: { src: string; alt: string }) {
+  if (isPdfUrl(src)) {
+    return (
+      <div className="border-b bg-muted/20">
+        <iframe src={src} title={alt} className="h-[70vh] w-full" />
+        <a
+          href={src}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 border-t bg-white py-2.5 text-sm font-medium text-sca-orange hover:bg-muted/40"
+        >
+          <FileText className="h-4 w-4" /> Open PDF in nieuw tabblad
+          <Download className="h-3.5 w-3.5" />
+        </a>
+      </div>
+    );
+  }
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src={src} alt={alt} className="w-full h-auto" />;
+}
 
 export function NewsModal({
   item,
@@ -56,25 +78,16 @@ export function NewsModal({
           />
         )}
 
-        {/* Single image — shown in full, never cropped */}
+        {/* Single image or PDF — shown in full, never cropped */}
         {item.image && !item.video && (
-          <img
-            src={item.image}
-            alt={item.title}
-            className="w-full h-auto rounded-t-xl"
-          />
+          <MediaBlock src={item.image} alt={item.title} />
         )}
 
-        {/* Multiple images — each shown in full */}
+        {/* Multiple images/PDFs — each shown in full */}
         {item.images && item.images.length > 0 && (
           <div className="flex flex-col gap-2 bg-muted/30 p-2">
             {item.images.map((src, i) => (
-              <img
-                key={i}
-                src={src}
-                alt={`${item.title} ${i + 1}`}
-                className="w-full h-auto rounded-lg"
-              />
+              <MediaBlock key={src} src={src} alt={`${item.title} ${i + 1}`} />
             ))}
           </div>
         )}

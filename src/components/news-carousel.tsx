@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, FileText } from "lucide-react";
 import { newsItems as staticNewsItems, type NewsItem } from "@/lib/news-data";
 import { NewsModal } from "@/components/news-modal";
+import { isPdfUrl } from "@/lib/media";
 
 const VISIBLE = 4;
 const INTERVAL = 4000;
@@ -47,11 +48,17 @@ export function NewsCarousel({ items = staticNewsItems }: { items?: NewsItem[] }
             >
               {/* Thumbnail */}
               {(item.image || item.images?.[0]) ? (
-                <img
-                  src={item.image ?? item.images![0]}
-                  alt={item.title}
-                  className="h-36 w-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                isPdfUrl(item.image ?? item.images![0]) ? (
+                  <div className="flex h-36 w-full items-center justify-center bg-sca-navy/5">
+                    <FileText className="h-8 w-8 text-sca-navy/40" />
+                  </div>
+                ) : (
+                  <img
+                    src={item.image ?? item.images![0]}
+                    alt={item.title}
+                    className="h-36 w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                )
               ) : item.video ? (
                 <div className="h-36 w-full bg-gray-900 flex items-center justify-center relative overflow-hidden">
                   <video src={item.video} className="absolute inset-0 w-full h-full object-cover opacity-50" />
