@@ -56,24 +56,24 @@ export function NewsModal({
           />
         )}
 
-        {/* Single image */}
+        {/* Single image — shown in full, never cropped */}
         {item.image && !item.video && (
           <img
             src={item.image}
             alt={item.title}
-            className={`w-full rounded-t-xl ${item.content ? "object-cover max-h-72" : "object-contain"}`}
+            className="w-full h-auto rounded-t-xl"
           />
         )}
 
-        {/* Multiple images */}
+        {/* Multiple images — each shown in full */}
         {item.images && item.images.length > 0 && (
-          <div className="flex flex-col gap-0">
+          <div className="flex flex-col gap-2 bg-muted/30 p-2">
             {item.images.map((src, i) => (
               <img
                 key={i}
                 src={src}
                 alt={`${item.title} ${i + 1}`}
-                className="w-full object-contain"
+                className="w-full h-auto rounded-lg"
               />
             ))}
           </div>
