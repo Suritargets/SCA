@@ -11,6 +11,14 @@ const nextConfig: NextConfig = {
   // configured). Its internal asset resolution breaks when bundled, so it
   // must run via Node's native module loader instead.
   serverExternalPackages: ["@electric-sql/pglite"],
+  experimental: {
+    serverActions: {
+      // Server Actions default to 1MB, far too small for photo/PDF uploads
+      // in the blog editor and media library. Stay under Vercel's ~4.5MB
+      // platform request-body ceiling.
+      bodySizeLimit: "4mb",
+    },
+  },
 };
 
 export default nextConfig;
